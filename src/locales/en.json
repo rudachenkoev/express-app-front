@@ -1,3 +1,4 @@
 {
-  "nameShorthand": "Name"
+  "signInTo": "Sign in to",
+  "signInDesc": "Service created to demonstrate skills in Frontend and Backend part development using Vue.js and Express. A platform that allows you to buy and create training programs for further sales."
 }

@@ -14,6 +14,6 @@ const layout = computed<Component | boolean>(() => {
 })
 </script>
 
-<template lang="pug">
-component(v-if="layout" :is="layout")
+<template>
+  <Component v-if="layout" :is="layout"/>
 </template>
