@@ -2,12 +2,12 @@
   <div class="w-screen h-screen">
     <div class="size-full md:h-1/2 bg-primary">
       <div class="container h-full mx-auto relative flex justify-center md:justify-start md:items-end p-6 md:p-0">
-        <div class="hidden lg:flex justify-between items-center w-full max-w-[485px] xl:max-w-[741px] 2xl:max-w-[998px] pr-12">
+        <div class="hidden lg:flex justify-between items-center w-full max-w-[485px] xl:max-w-[741px] 2xl:max-w-[998px] lg:pr-12 lg:pb-12">
           <div class="pr-12">
             <div class="text-4xl text-white font-semibold leading-relaxed">
               {{ $t('signInTo') }}
             </div>
-            <div class="text-2xl text-white">
+            <div class="text-2xl text-white leading-relaxed">
               Express Application Front
             </div>
             <div class="min-h-[115px] mt-5 text-sm text-white font-light">
@@ -21,7 +21,7 @@
             class="sm:hidden xl:block"
             alt="rocket-man"/>
         </div>
-        <div class="md:absolute -bottom-[358px] md:right-[calc(50%-270px)] lg:right-0 max-w-[540px] w-full bg-white shadow-[0_4px_35px_0_rgba(0,0,0,0.08)] rounded-[40px] p-11">
+        <div class="md:absolute -bottom-[358px] md:right-[calc(50%-270px)] lg:right-0 max-w-[540px] w-full h-fit bg-white shadow-[0_4px_35px_0_rgba(0,0,0,0.08)] rounded-[40px] p-11">
           <RouterView/>
         </div>
       </div>

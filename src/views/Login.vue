@@ -9,8 +9,8 @@ const body = reactive({
 </script>
 
 <template>
-  <h1 class="text-5xl leading-normal font-medium mb-11">{{ $t('signIn') }}</h1>
-  <div class="flex space-x-5 mb-12">
+  <h1 class="text-4xl md:text-5xl leading-normal font-medium mb-11">{{ $t('signIn') }}</h1>
+  <div class="flex space-x-3 md:space-x-5 mb-12">
     <AppButton icon="google" :label="$t('signInWithGoogle')" color="info" width="full"/>
     <AppButton icon="facebook" color="surface"/>
     <AppButton icon="apple" color="surface"/>
@@ -32,11 +32,11 @@ const body = reactive({
     class="mb-3"
   />
   <div class="text-right mb-11">
-    <router-link to="#" class="text-sm text-primary">{{ $t('forgotPassword') }}</router-link>
+    <router-link to="#" class="text-xs md:text-sm text-primary">{{ $t('forgotPassword') }}</router-link>
   </div>
 
   <AppButton :label="$t('signIn')" width="full"/>
-  <div class="text-secondary text-sm text-center mt-8">
+  <div class="text-secondary text-xs md:text-sm text-center mt-8">
     {{ $t('noAccount') }}
     <router-link to="#" class="text-primary">{{ $t('signUp') }}</router-link>
   </div>

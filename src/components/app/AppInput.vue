@@ -16,7 +16,7 @@ defineEmits(['update:modelValue'])
 
 <template>
   <div>
-    <div v-if="label" class="mb-3">{{ label }}</div>
+    <div v-if="label" class="text-sm md:text-base mb-3">{{ label }}</div>
     <input
       :value="modelValue"
       :placeholder="placeholder || label"
