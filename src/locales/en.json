@@ -1,4 +1,13 @@
 {
+  "signIn": "Sign in",
   "signInTo": "Sign in to",
-  "signInDesc": "Service created to demonstrate skills in Frontend and Backend part development using Vue.js and Express. A platform that allows you to buy and create training programs for further sales."
+  "signInWithGoogle": "Sign in with Google",
+  "signInDesc": "Service created to demonstrate skills in Frontend and Backend part development using Vue.js and Express. A platform that allows you to buy and create training programs for further sales.",
+  "noAccount": "No account?",
+  "signUp": "Sign up",
+  "enterYourEmail": "Enter your email address",
+  "email": "Email address",
+  "enterYourPassword": "Enter your password",
+  "password": "Password",
+  "forgotPassword": "Forgot your password?"
 }

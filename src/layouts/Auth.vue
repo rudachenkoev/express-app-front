@@ -21,7 +21,7 @@
             class="sm:hidden xl:block"
             alt="rocket-man"/>
         </div>
-        <div class="md:absolute -bottom-[371px] md:right-[calc(50%-270px)] lg:right-0 max-w-[540px] w-full md:min-h-[742px] bg-white shadow-[0_4px_35px_0_rgba(0,0,0,0.08)] rounded-[40px]">
+        <div class="md:absolute -bottom-[358px] md:right-[calc(50%-270px)] lg:right-0 max-w-[540px] w-full bg-white shadow-[0_4px_35px_0_rgba(0,0,0,0.08)] rounded-[40px] p-11">
           <RouterView/>
         </div>
       </div>
