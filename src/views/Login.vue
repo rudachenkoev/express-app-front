@@ -1,11 +1,27 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, computed } from 'vue'
+import { required } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
 // Use methods and configurations
 //
-const body = reactive({
+interface LoginForm {
+  email: string,
+  password: string
+}
+const body: LoginForm = reactive({
   email: '',
   password: ''
 })
+// Validation
+const rules = computed(() => ({
+  email: { required },
+  password: { required }
+}))
+const v$ = useVuelidate(rules, body)
+
+const onSubmit = async () => {
+  if (v$.value.$invalid) return v$.value.$touch()
+}
 </script>
 
 <template>
@@ -20,22 +36,27 @@ const body = reactive({
     v-model="body.email"
     :label="$t('enterYourEmail')"
     :placeholder="$t('email')"
+    :error-messages="v$.email.$errors"
+    type="email"
     width="full"
     class="mb-9"
+    @blur="v$.email.$touch()"
   />
   <AppInput
     v-model="body.password"
     :label="$t('enterYourPassword')"
     :placeholder="$t('password')"
+    :error-messages="v$.password.$errors"
     type="password"
     width="full"
     class="mb-3"
+    @blur="v$.password.$touch()"
   />
   <div class="text-right mb-11">
     <router-link to="#" class="text-xs md:text-sm text-primary">{{ $t('forgotPassword') }}</router-link>
   </div>
 
-  <AppButton :label="$t('signIn')" width="full"/>
+  <AppButton :label="$t('signIn')" width="full" @click="onSubmit"/>
   <div class="text-secondary text-xs md:text-sm text-center mt-8">
     {{ $t('noAccount') }}
     <router-link to="#" class="text-primary">{{ $t('signUp') }}</router-link>

@@ -27,7 +27,7 @@ const theme = computed<string>(() => {
 <template>
   <button
     :disabled="disabled"
-    :class="`${defaultClasses} ${theme}`"
+    :class="[defaultClasses, theme]"
   >
     <img
       v-if="icon"

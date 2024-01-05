@@ -12,7 +12,8 @@ export default {
       accent: 'rgb(var(--color-accent) / <alpha-value>)',
       secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
       surface: 'rgb(var(--color-surface) / <alpha-value>)',
-      info: 'rgb(var(--color-info) / <alpha-value>)'
+      info: 'rgb(var(--color-info) / <alpha-value>)',
+      error: 'rgb(var(--color-error) / <alpha-value>)'
     }
   },
   plugins: [],

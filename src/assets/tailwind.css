@@ -10,5 +10,6 @@
     --color-secondary: 141 141 141; /* #8D8D8D */
     --color-surface: 246 246 246; /* #F6F6F6 */
     --color-info: 233 241 255; /* #E9F1FF */
+    --color-error: 255 51 51; /* #FF3333 */
   }
 }

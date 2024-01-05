@@ -1,8 +1,23 @@
 {
+  "notify": {
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid email",
+      "maxLength": "Exceeded the maximum length of {max} characters",
+      "minLength": "Does not meet the minimum length requirement of {min} characters",
+      "maxValue": "Exceeded the maximum value",
+      "minValue": "Exceeded the minimum value",
+      "sameAs": "Value must be equal to another value",
+      "sameAsPassword": "Passwords do not match",
+      "containsUppercase": "Must contain at least one uppercase letter",
+      "containsLowercase": "Must contain at least one lowercase letter",
+      "containsNumber": "Must contain at least one digit"
+    }
+  },
   "signIn": "Sign in",
   "signInTo": "Sign in to",
   "signInWithGoogle": "Sign in with Google",
-  "signInDesc": "Service created to demonstrate skills in Frontend and Backend part development using Vue.js and Express. A platform that allows you to buy and create training programs for further sales.",
+  "signInDesc": "Service created to demonstrate skills in Frontend and Backend part development using Vue.js, Express and MongoDB. A platform that allows you to buy and create training programs for further sales.",
   "noAccount": "No account?",
   "signUp": "Sign up",
   "enterYourEmail": "Enter your email address",
