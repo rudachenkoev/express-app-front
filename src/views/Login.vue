@@ -13,8 +13,8 @@ interface LoginForm {
   password: string
 }
 const body: LoginForm = reactive({
-  email: 'trailhub@yopmail.com',
-  password: 'Password12'
+  email: '',
+  password: ''
 })
 // Validation
 const rules = computed(() => ({
