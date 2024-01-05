@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import i18n from './plugins/vue-i18n'
 import { setAxiosConfigurations } from '@/configs/axios'
+import { setIzitoastConfiguration } from '@/configs/izitoast'
 
 import AppButton from '@components/app/AppButton.vue'
 import AppInput from '@components/app/AppInput.vue'
@@ -19,5 +20,6 @@ app.use(router)
 app.use(i18n)
 
 setAxiosConfigurations()
+setIzitoastConfiguration()
 
 app.mount('#app')

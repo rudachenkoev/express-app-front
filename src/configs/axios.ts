@@ -1,4 +1,8 @@
 import axios from 'axios'
+import iziToast from 'izitoast'
+import i18n from '@/plugins/vue-i18n'
+import { logout } from '@helpers/auth'
+import router from '@/router'
 
 const { VITE_API_URL, VITE_DEV_MODE } = import.meta.env
 
@@ -16,18 +20,21 @@ export const setAxiosConfigurations = () => {
       switch (error.response.status) {
         case 400:
         case 404:
-          console.log(error.response.data)
-          break;
+          iziToast.error({ message: i18n.global.t(`notify.errors.${error.response.data}`) })
+          break
         case 401:
-          console.log(error.response.data)
-          // TODO: call logout function and redirect to login page
-          break;
+          logout()
+          location.href = '/login'
+          break
         case 403:
-          console.log(error.response.data)
-          // TODO: $router.go(-1)
-          break;
+          iziToast.error({ message: i18n.global.t('notify.errors.Forbidden access') })
+          router.go(-1)
+          break
         case 500:
-          console.log(error.response.data)
+          iziToast.error({
+            title: i18n.global.t('errorOccurred'),
+            message: i18n.global.t('notify.errors.Server error')
+          })
           break
       }
     }

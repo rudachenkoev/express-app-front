@@ -12,8 +12,19 @@
       "containsUppercase": "Must contain at least one uppercase letter",
       "containsLowercase": "Must contain at least one lowercase letter",
       "containsNumber": "Must contain at least one digit"
+    },
+    "errors": {
+      "Server error": "Something went wrong. Please inform the administration about your error through the feedback section.",
+      "Forbidden access": "Access to the section is unavailable or temporarily closed",
+      "No user information was found or the data is incorrect": "No user information was found or the data is incorrect",
+      "Feedback was not found": "Feedback was not found",
+      "Password recovery request has not been created before": "Password recovery request has not been created before",
+      "A user with this mail already exists": "A user with this mail already exists",
+      "Registration request has not been created before": "Registration request has not been created before"
     }
   },
+  "payAttention": "Pay attention",
+  "errorOccurred": "An error occurred",
   "signIn": "Sign in",
   "signInTo": "Sign in to",
   "signInWithGoogle": "Sign in with Google",
