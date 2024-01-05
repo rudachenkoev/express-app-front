@@ -2,7 +2,11 @@
 import { reactive, computed } from 'vue'
 import { required } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
+import axios from 'axios'
+import { setAuthToken } from '@helpers/auth'
+import { useRoute } from 'vue-router'
 // Use methods and configurations
+const route = useRoute()
 //
 interface LoginForm {
   email: string,
@@ -21,6 +25,14 @@ const v$ = useVuelidate(rules, body)
 
 const onSubmit = async () => {
   if (v$.value.$invalid) return v$.value.$touch()
+
+  try {
+    const response = await axios.post('v1/auth/login', body)
+    setAuthToken({ jwt: response.data.bearer })
+    location.href = route.query.path ? String(route.query.path) : '/'
+  } catch (error) {
+    console.log(error)
+  }
 }
 </script>
 
@@ -41,6 +53,7 @@ const onSubmit = async () => {
     width="full"
     class="mb-9"
     @blur="v$.email.$touch()"
+    @keyup.enter="onSubmit"
   />
   <AppInput
     v-model="body.password"
@@ -51,6 +64,7 @@ const onSubmit = async () => {
     width="full"
     class="mb-3"
     @blur="v$.password.$touch()"
+    @keyup.enter="onSubmit"
   />
   <div class="text-right mb-11">
     <router-link to="#" class="text-xs md:text-sm text-primary">{{ $t('forgotPassword') }}</router-link>
