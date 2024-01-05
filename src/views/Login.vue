@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, computed } from 'vue'
+import { reactive, computed, ref } from 'vue'
 import { required } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
 import axios from 'axios'
@@ -13,8 +13,8 @@ interface LoginForm {
   password: string
 }
 const body: LoginForm = reactive({
-  email: '',
-  password: ''
+  email: 'trailhub@yopmail.com',
+  password: 'Password12'
 })
 // Validation
 const rules = computed(() => ({
@@ -23,15 +23,19 @@ const rules = computed(() => ({
 }))
 const v$ = useVuelidate(rules, body)
 
+const isLoading = ref(false)
 const onSubmit = async () => {
   if (v$.value.$invalid) return v$.value.$touch()
 
+  isLoading.value = true
   try {
     const response = await axios.post('v1/auth/login', body)
     setAuthToken({ jwt: response.data.bearer })
     location.href = route.query.path ? String(route.query.path) : '/'
   } catch (error) {
     console.log(error)
+  } finally {
+    isLoading.value = false
   }
 }
 </script>
@@ -70,7 +74,7 @@ const onSubmit = async () => {
     <router-link to="#" class="text-xs md:text-sm text-primary">{{ $t('forgotPassword') }}</router-link>
   </div>
 
-  <AppButton :label="$t('signIn')" width="full" @click="onSubmit"/>
+  <AppButton :label="$t('signIn')" :loading="isLoading" width="full" @click="onSubmit"/>
   <div class="text-secondary text-xs md:text-sm text-center mt-8">
     {{ $t('noAccount') }}
     <router-link to="#" class="text-primary">{{ $t('signUp') }}</router-link>
