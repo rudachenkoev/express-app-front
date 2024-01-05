@@ -15,7 +15,7 @@
             </div>
           </div>
           <img
-            src="/images/rocket-man.svg"
+            src="/images/rocket-man.png"
             width="365"
             height="365"
             class="sm:hidden xl:block"
