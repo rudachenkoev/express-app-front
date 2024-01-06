@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, computed, ref } from 'vue'
-import { required } from '@vuelidate/validators'
+import { required, email } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
 import axios from 'axios'
 import { setAuthToken } from '@helpers/auth'
@@ -18,7 +18,7 @@ const body: LoginForm = reactive({
 })
 // Validation
 const rules = computed(() => ({
-  email: { required },
+  email: { required, email },
   password: { required }
 }))
 const v$ = useVuelidate(rules, body)
@@ -77,6 +77,6 @@ const onSubmit = async () => {
   <AppButton :label="$t('signIn')" :loading="isLoading" width="full" @click="onSubmit"/>
   <div class="text-secondary text-xs md:text-sm text-center mt-8">
     {{ $t('noAccount') }}
-    <router-link to="#" class="text-primary">{{ $t('signUp') }}</router-link>
+    <router-link :to="{ name: 'registration' }" class="text-primary">{{ $t('signUp') }}</router-link>
   </div>
 </template>

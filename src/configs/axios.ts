@@ -16,7 +16,7 @@ export const setAxiosConfigurations = () => {
     if (error.config.hasOwnProperty('errorHandle') && error.config.errorHandle === false) {
       return Promise.reject(error)
     }
-    if (error.response.status) {
+    if (error.response?.status) {
       switch (error.response.status) {
         case 400:
         case 404:

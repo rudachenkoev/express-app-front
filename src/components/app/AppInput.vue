@@ -34,14 +34,11 @@ const colorVariants = {
       @blur="$emit('blur')"
       @keyup.enter="$emit('keyup.enter')"
     />
-    <template v-if="errorMessages?.length">
-      <div
-        :key="err.$uid"
-        v-for="err in errorMessages"
-        class="px-6 mt-1 text-error text-xs font-light"
-      >
-        {{ $t(`notify.validation.${err.$validator}`, { ...err.$params }) }}
-      </div>
-    </template>
+    <div
+      v-if="errorMessages?.length"
+      class="px-6 mt-1 text-error text-xs font-light"
+    >
+      {{ $t(`notify.validation.${errorMessages[0].$validator}`, { ...errorMessages[0].$params }) }}
+    </div>
   </div>
 </template>

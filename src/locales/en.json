@@ -23,6 +23,9 @@
       "Registration request has not been created before": "Registration request has not been created before"
     }
   },
+  "btn": {
+    "continue": "Continue"
+  },
   "payAttention": "Pay attention",
   "errorOccurred": "An error occurred",
   "signIn": "Sign in",
@@ -35,5 +38,11 @@
   "email": "Email address",
   "enterYourPassword": "Enter your password",
   "password": "Password",
-  "forgotPassword": "Forgot your password?"
+  "forgotPassword": "Forgot your password?",
+  "alreadyHaveAccount": "Already have an account?",
+  "finishRegistration": "Finish registration",
+  "passwordConfirmation": "Password confirmation",
+  "backToLogin": "Back to login",
+  "signUpFlowDescription": "A confirmation email was sent to <span class='text-primary'>{email}</span>. Check your mail address to continue registration. If you don't receive the email within 5 minutes, send the request again.",
+  "generatePasswordAutomatically": "Generate your password automatically"
 }

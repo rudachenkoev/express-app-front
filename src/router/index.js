@@ -9,7 +9,27 @@ const router = createRouter({
       component: () => import('@/views/Login.vue'),
       meta: {
         access: 'public',
-        name: 'authorization',
+        name: 'signIn',
+        layout: 'auth'
+      }
+    },
+    {
+      path: '/registration',
+      name: 'registration',
+      component: () => import('@/views/Registration/Index.vue'),
+      meta: {
+        access: 'public',
+        name: 'signUp',
+        layout: 'auth'
+      }
+    },
+    {
+      path: '/registration/confirmation',
+      name: 'registration-confirmation',
+      component: () => import('@/views/Registration/Confirmation.vue'),
+      meta: {
+        access: 'public',
+        name: 'finishRegistration',
         layout: 'auth'
       }
     }

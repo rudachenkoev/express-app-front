@@ -7,6 +7,7 @@ import { setIzitoastConfiguration } from '@/configs/izitoast'
 
 import AppButton from '@components/app/AppButton.vue'
 import AppInput from '@components/app/AppInput.vue'
+import AppCheckbox from '@components/app/AppCheckbox.vue'
 
 import './assets/style.css'
 import './assets/tailwind.css'
@@ -15,6 +16,7 @@ const app = createApp(App)
 
 app.component('AppButton', AppButton)
 app.component('AppInput', AppInput)
+app.component('AppCheckbox', AppCheckbox)
 
 app.use(router)
 app.use(i18n)

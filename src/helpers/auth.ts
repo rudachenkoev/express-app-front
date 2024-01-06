@@ -31,3 +31,20 @@ export const logout = () => {
   deleteAllCookies('TOKEN')
   localStorage.removeItem('TOKEN')
 }
+
+export const generatePassword = ({ length, useUppercase = true, useNumbers = true }: { length: number, useUppercase?: boolean, useNumbers?: boolean }): string => {
+  const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz'
+  const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  const numberChars = '0123456789'
+
+  let validChars = lowercaseChars
+  if (useUppercase) validChars += uppercaseChars
+  if (useNumbers) validChars += numberChars
+
+  let password = ''
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * validChars.length)
+    password += validChars.charAt(randomIndex)
+  }
+  return password
+}
