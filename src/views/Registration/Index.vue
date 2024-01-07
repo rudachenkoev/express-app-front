@@ -41,7 +41,7 @@ const onSubmit = async () => {
     <AppButton :label="$t('backToLogin')" width="full" @click="$router.push({ name: 'login' })"/>
   </template>
   <template v-else>
-    <h1 class="text-4xl md:text-5xl leading-normal font-medium mb-11">{{ $t('signUp') }}</h1>
+    <h1 class="card-title mb-11">{{ $t('signUp') }}</h1>
 
     <AppInput
       v-model="body.email"
@@ -57,9 +57,9 @@ const onSubmit = async () => {
 
     <AppButton :label="$t('signUp')" :loading="isLoading" width="full" @click="onSubmit"/>
 
-    <div class="text-secondary text-xs md:text-sm text-center mt-8">
+    <div class="link text-secondary text-center mt-8">
       {{ $t('alreadyHaveAccount') }}
-      <router-link :to="{ name: 'login' }" class="text-primary">{{ $t('signIn') }}</router-link>
+      <router-link :to="{ name: 'login' }" class="link">{{ $t('signIn') }}</router-link>
     </div>
   </template>
 </template>

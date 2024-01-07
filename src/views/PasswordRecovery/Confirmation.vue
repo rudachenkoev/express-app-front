@@ -68,7 +68,7 @@ const generateUserPassword = () => {
 </script>
 
 <template>
-  <h1 class="text-4xl md:text-5xl leading-normal font-medium mb-11">{{ $t('passwordRecovery') }}</h1>
+  <h1 class="card-title mb-11">{{ $t('passwordRecovery') }}</h1>
 
   <AppInput
     v-model="body.password"

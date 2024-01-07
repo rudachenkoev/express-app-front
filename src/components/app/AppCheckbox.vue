@@ -8,8 +8,8 @@ defineProps({
 defineEmits(['update:modelValue'])
 //
 const colorVariants = {
-  default: 'w-4 h-4 bg-white focus-visible:outline-0 disabled:opacity-50 border border-secondary hover:border-primary/50 focus:border-primary rounded-lg',
-  error: 'border-error hover:border-error/50 focus:border-error'
+  default: 'formField w-4 h-4',
+  error: 'formField-error'
 }
 </script>
 
@@ -27,7 +27,7 @@ const colorVariants = {
     </label>
     <div
       v-if="errorMessages?.length"
-      class="px-6 mt-1 text-error text-xs font-light"
+      class="formField-errorMessage"
     >
       {{ $t(`notify.validation.${errorMessages[0].$validator}`, { ...errorMessages[0].$params }) }}
     </div>

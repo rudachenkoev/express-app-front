@@ -16,8 +16,8 @@ const props = defineProps({
 defineEmits(['update:modelValue', 'blur', 'keyup.enter'])
 //
 const colorVariants = {
-  default: `w-${props.width} h-14 bg-white text-sm font-light focus-visible:outline-0 disabled:opacity-50 border border-secondary hover:border-primary/50 focus:border-primary rounded-lg px-6 py-5`,
-  error: 'border-error hover:border-error/50 focus:border-error'
+  default: `formField w-${props.width} h-14 text-sm font-light focus-visible:outline-0 px-6 py-5`,
+  error: 'formField-error'
 }
 </script>
 
@@ -36,7 +36,7 @@ const colorVariants = {
     />
     <div
       v-if="errorMessages?.length"
-      class="px-6 mt-1 text-error text-xs font-light"
+      class="formField-errorMessage"
     >
       {{ $t(`notify.validation.${errorMessages[0].$validator}`, { ...errorMessages[0].$params }) }}
     </div>

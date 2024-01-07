@@ -13,3 +13,24 @@
     --color-error: 255 51 51; /* #FF3333 */
   }
 }
+
+@layer components {
+  /* General form fields styles */
+  .formField {
+    @apply bg-white disabled:opacity-50 border border-secondary hover:border-primary/50 focus:border-primary rounded-lg;
+  }
+  .formField-error {
+    @apply border-error hover:border-error/50 focus:border-error;
+  }
+  .formField-errorMessage {
+    @apply px-6 mt-1 text-error text-xs font-light;
+  }
+  /* Link */
+  .link {
+    @apply text-xs md:text-sm text-primary;
+  }
+  /* Card title */
+  .card-title {
+    @apply text-3xl md:text-4xl leading-normal font-medium;
+  }
+}
