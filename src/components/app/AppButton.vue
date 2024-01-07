@@ -16,7 +16,7 @@ const props = defineProps({
   loading: { type: Boolean, default: false }
 })
 //
-const defaultClasses = `min-w-14 w-${props.width} h-14 disabled:opacity-50 flex items-center justify-center p-4 rounded-lg`
+const defaultClasses = `min-w-14 w-${props.width} h-14 disabled:opacity-50 flex items-center justify-center p-4 rounded-lg transition-colors ease-in-out duration-300`
 const theme = computed<string>(() => {
   switch (props.color) {
     case 'info': return 'bg-info hover:bg-info/75 text-accent'

@@ -43,7 +43,7 @@ const passwordAppendInnerIcon = computed<string>(() => fieldType.value === 'pass
       />
       <i
         v-if="type === 'password'"
-        :class="`fa-regular fa-${passwordAppendInnerIcon} cursor-pointer opacity-70 hover:opacity-100`"
+        :class="`fa-regular fa-${passwordAppendInnerIcon} cursor-pointer opacity-70 hover:opacity-100 transition ease-in-out duration-300`"
         @click="fieldType = fieldType === 'password' ? 'text' : 'password'"
       />
     </div>

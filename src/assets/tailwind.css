@@ -17,7 +17,7 @@
 @layer components {
   /* General form fields styles */
   .formField {
-    @apply bg-white disabled:opacity-50 border border-secondary hover:border-primary/50 focus:border-primary rounded-lg;
+    @apply bg-white disabled:opacity-50 border border-secondary hover:border-primary/50 focus:border-primary rounded-lg transition-colors ease-in-out duration-300;
   }
   .formField-error {
     @apply border-error hover:border-error/50 focus:border-error;
