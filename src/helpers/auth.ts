@@ -27,6 +27,11 @@ export const setAuthToken = ({ key = 'Bearer', jwt }: { key?: string, jwt: strin
   setCookie({ cookieName: 'TOKEN', cookieValue: `${key} ${jwt}` })
 }
 
+export const checkAuthentication = (): boolean => {
+  if (DEV_MODE === 'true') return !!localStorage.getItem('TOKEN')
+  return !!document.cookie.match(new RegExp(`(^| )TOKEN=([^;]+)`))
+}
+
 export const logout = () => {
   deleteAllCookies('TOKEN')
   localStorage.removeItem('TOKEN')
