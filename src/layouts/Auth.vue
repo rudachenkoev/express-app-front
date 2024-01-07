@@ -19,7 +19,7 @@ onMounted(() => observeHeight())
         <div class="hidden lg:flex justify-between items-center w-full max-w-[485px] xl:max-w-[741px] 2xl:max-w-[998px] lg:pr-12 lg:pb-12">
           <div class="pr-12">
             <div class="text-4xl text-white font-semibold leading-relaxed">
-              {{ $t('signInTo') }}
+              {{ $t($route.meta.title) }}
             </div>
             <div class="text-2xl text-white leading-relaxed">
               Express Application Front

@@ -10,7 +10,7 @@ const router = createRouter({
       component: () => import('@/views/Authentication/Login.vue'),
       meta: {
         access: 'public',
-        name: 'signIn',
+        title: 'signIn',
         layout: 'auth'
       }
     },
@@ -20,7 +20,7 @@ const router = createRouter({
       component: () => import('@/views/Authentication/Registration.vue'),
       meta: {
         access: 'public',
-        name: 'signUp',
+        title: 'signUp',
         layout: 'auth'
       }
     },
@@ -30,7 +30,7 @@ const router = createRouter({
       component: () => import('@/views/Authentication/PasswordConfirmation.vue'),
       meta: {
         access: 'public',
-        name: 'finishRegistration',
+        title: 'finishRegistration',
         layout: 'auth'
       }
     },
@@ -40,7 +40,7 @@ const router = createRouter({
       component: () => import('@/views/Authentication/PasswordRecovery.vue'),
       meta: {
         access: 'public',
-        name: 'passwordRecovery',
+        title: 'passwordRecovery',
         layout: 'auth'
       }
     },
@@ -50,7 +50,7 @@ const router = createRouter({
       component: () => import('@/views/Authentication/PasswordConfirmation.vue'),
       meta: {
         access: 'public',
-        name: 'passwordRecovery',
+        title: 'passwordRecovery',
         layout: 'auth'
       }
     }

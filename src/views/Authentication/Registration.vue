@@ -59,7 +59,7 @@ const onSubmit = async () => {
       @keyup.enter="onSubmit"
     />
 
-    <AppButton :label="$t('signUp')" :loading="isLoading" width="full" @click="onSubmit"/>
+    <AppButton :label="$t('sendConfirmationEmail')" :loading="isLoading" width="full" @click="onSubmit"/>
 
     <div class="text-xs md:text-sm text-secondary text-center mt-8">
       {{ $t('alreadyHaveAccount') }}

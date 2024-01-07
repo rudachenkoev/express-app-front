@@ -29,7 +29,6 @@
   "payAttention": "Pay attention",
   "errorOccurred": "An error occurred",
   "signIn": "Sign in",
-  "signInTo": "Sign in to",
   "signInWithGoogle": "Sign in with Google",
   "signInDesc": "Service created to demonstrate skills in Frontend and Backend part development using Vue.js, Express and MongoDB. A platform that allows you to buy and create training programs for further sales.",
   "noAccount": "No account?",
