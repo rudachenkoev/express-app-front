@@ -4,12 +4,16 @@ import { required, email } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
 import axios from 'axios'
 import AppCheckmark from '@components/app/AppCheckmark.vue'
+import { storeToRefs } from 'pinia'
+import { useUserStore } from '@stores/user'
+// Use methods and configurations
+const userStore = storeToRefs(useUserStore())
 //
 interface RegistrationForm {
   email: string
 }
 const body: RegistrationForm = reactive({
-  email: ''
+  email: userStore.email
 })
 // Validation
 const rules = computed(() => ({

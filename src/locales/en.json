@@ -47,5 +47,6 @@
   "generatePasswordAutomatically": "Generate your password automatically",
   "passwordRecoveryDesc": "A confirmation email was sent to <span class='text-primary'>{email}</span>. Check your mail address to continue password recovery. If you don't receive the email within 5 minutes, send the request again.",
   "passwordRecovery": "Password recovery",
-  "sendConfirmationEmail": "Send confirmation email"
+  "sendConfirmationEmail": "Send confirmation email",
+  "rememberPassword": "Remember your password?"
 }

@@ -4,12 +4,16 @@ import { required, email } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
 import axios from 'axios'
 import AppCheckmark from '@components/app/AppCheckmark.vue'
+import { storeToRefs } from 'pinia'
+import { useUserStore } from '@stores/user'
+// Use methods and configurations
+const userStore = storeToRefs(useUserStore())
 //
 interface PasswordRecoveryForm {
   email: string
 }
 const body: PasswordRecoveryForm = reactive({
-  email: ''
+  email: userStore.email
 })
 // Validation
 const rules = computed(() => ({
@@ -56,5 +60,10 @@ const onSubmit = async () => {
     />
 
     <AppButton :label="$t('sendConfirmationEmail')" :loading="isLoading" width="full" @click="onSubmit"/>
+
+    <div class="text-xs md:text-sm text-secondary text-center mt-8">
+      {{ $t('rememberPassword') }}
+      <router-link :to="{ name: 'login' }" class="text-primary">{{ $t('signIn') }}</router-link>
+    </div>
   </template>
 </template>

@@ -5,15 +5,18 @@ import { useVuelidate } from '@vuelidate/core'
 import axios from 'axios'
 import { setAuthToken } from '@helpers/auth'
 import { useRoute } from 'vue-router'
+import { useUserStore } from '@stores/user'
+import { storeToRefs } from 'pinia'
 // Use methods and configurations
 const route = useRoute()
+const userStore = storeToRefs(useUserStore())
 //
 interface LoginForm {
   email: string,
   password: string
 }
 const body: LoginForm = reactive({
-  email: '',
+  email: userStore.email,
   password: ''
 })
 // Validation
