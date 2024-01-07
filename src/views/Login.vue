@@ -41,7 +41,7 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <h1 class="card-title mb-11">{{ $t('signIn') }}</h1>
+  <h1 class="text-3xl md:text-4xl leading-normal font-medium mb-11">{{ $t('signIn') }}</h1>
   <div class="flex space-x-3 md:space-x-5 mb-12">
     <AppButton icon="google" :label="$t('signInWithGoogle')" color="info" width="full"/>
     <AppButton icon="facebook" color="surface"/>
@@ -71,15 +71,15 @@ const onSubmit = async () => {
     @keyup.enter="onSubmit"
   />
   <div class="text-right mb-11">
-    <router-link :to="{ name: 'password-recovery' }" class="link">
+    <router-link :to="{ name: 'password-recovery' }" class="text-xs md:text-sm text-primary">
       {{ $t('forgotPassword') }}
     </router-link>
   </div>
 
   <AppButton :label="$t('signIn')" :loading="isLoading" width="full" @click="onSubmit"/>
-  <div class="link text-secondary text-center mt-8">
+  <div class="text-xs md:text-sm text-secondary text-center mt-8">
     {{ $t('noAccount') }}
-    <router-link :to="{ name: 'registration' }" class="link">
+    <router-link :to="{ name: 'registration' }" class="text-primary">
       {{ $t('signUp') }}
     </router-link>
   </div>

@@ -25,12 +25,4 @@
   .formField-errorMessage {
     @apply px-6 mt-1 text-error text-xs font-light;
   }
-  /* Link */
-  .link {
-    @apply text-xs md:text-sm text-primary;
-  }
-  /* Card title */
-  .card-title {
-    @apply text-3xl md:text-4xl leading-normal font-medium;
-  }
 }
