@@ -5,10 +5,10 @@ import { useVuelidate } from '@vuelidate/core'
 import axios from 'axios'
 import AppCheckmark from '@components/app/AppCheckmark.vue'
 //
-interface RegistrationForm {
+interface PasswordRecoveryForm {
   email: string
 }
-const body: RegistrationForm = reactive({
+const body: PasswordRecoveryForm = reactive({
   email: ''
 })
 // Validation
@@ -18,14 +18,14 @@ const rules = computed(() => ({
 const v$ = useVuelidate(rules, body)
 
 const isLoading = ref(false)
-const isDoneRegistration = ref(false)
+const isDoneRecovery = ref(false)
 const onSubmit = async () => {
   if (v$.value.$invalid) return v$.value.$touch()
 
   isLoading.value = true
   try {
-    await axios.post('v1/auth/registration-requests/', body)
-    isDoneRegistration.value = true
+    await axios.post('v1/auth/password-recovery-requests/', body)
+    isDoneRecovery.value = true
   } catch (error) {
     console.log(error)
   } finally {
@@ -35,13 +35,13 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <template v-if="isDoneRegistration">
+  <template v-if="isDoneRecovery">
     <AppCheckmark />
-    <div v-html="$t('signUpFlowDesc', { email: body.email })" class="mb-11 text-center"/>
+    <div v-html="$t('passwordRecoveryDesc', { email: body.email })" class="mb-11 text-center"/>
     <AppButton :label="$t('backToLogin')" width="full" @click="$router.push({ name: 'login' })"/>
   </template>
   <template v-else>
-    <h1 class="text-4xl md:text-5xl leading-normal font-medium mb-11">{{ $t('signUp') }}</h1>
+    <h1 class="text-4xl md:text-5xl leading-normal font-medium mb-11">{{ $t('passwordRecovery') }}</h1>
 
     <AppInput
       v-model="body.email"
@@ -55,11 +55,6 @@ const onSubmit = async () => {
       @keyup.enter="onSubmit"
     />
 
-    <AppButton :label="$t('signUp')" :loading="isLoading" width="full" @click="onSubmit"/>
-
-    <div class="text-secondary text-xs md:text-sm text-center mt-8">
-      {{ $t('alreadyHaveAccount') }}
-      <router-link :to="{ name: 'login' }" class="text-primary">{{ $t('signIn') }}</router-link>
-    </div>
+    <AppButton :label="$t('sendConfirmationEmail')" :loading="isLoading" width="full" @click="onSubmit"/>
   </template>
 </template>

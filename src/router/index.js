@@ -32,6 +32,26 @@ const router = createRouter({
         name: 'finishRegistration',
         layout: 'auth'
       }
+    },
+    {
+      path: '/password-recovery',
+      name: 'password-recovery',
+      component: () => import('@/views/PasswordRecovery/Index.vue'),
+      meta: {
+        access: 'public',
+        name: 'passwordRecovery',
+        layout: 'auth'
+      }
+    },
+    {
+      path: '/password-recovery/confirmation',
+      name: 'password-recovery-confirmation',
+      component: () => import('@/views/PasswordRecovery/Confirmation.vue'),
+      meta: {
+        access: 'public',
+        name: 'passwordRecovery',
+        layout: 'auth'
+      }
     }
   ]
 })
