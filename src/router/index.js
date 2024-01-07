@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('@/views/Login.vue'),
+      component: () => import('@/views/Authentication/Login.vue'),
       meta: {
         access: 'public',
         name: 'signIn',
@@ -17,7 +17,7 @@ const router = createRouter({
     {
       path: '/registration',
       name: 'registration',
-      component: () => import('@/views/Registration/Index.vue'),
+      component: () => import('@/views/Authentication/Registration.vue'),
       meta: {
         access: 'public',
         name: 'signUp',
@@ -27,7 +27,7 @@ const router = createRouter({
     {
       path: '/registration/confirmation',
       name: 'registration-confirmation',
-      component: () => import('@/views/Registration/Confirmation.vue'),
+      component: () => import('@/views/Authentication/PasswordConfirmation.vue'),
       meta: {
         access: 'public',
         name: 'finishRegistration',
@@ -37,7 +37,7 @@ const router = createRouter({
     {
       path: '/password-recovery',
       name: 'password-recovery',
-      component: () => import('@/views/PasswordRecovery/Index.vue'),
+      component: () => import('@/views/Authentication/PasswordRecovery.vue'),
       meta: {
         access: 'public',
         name: 'passwordRecovery',
@@ -47,7 +47,7 @@ const router = createRouter({
     {
       path: '/password-recovery/confirmation',
       name: 'password-recovery-confirmation',
-      component: () => import('@/views/PasswordRecovery/Confirmation.vue'),
+      component: () => import('@/views/Authentication/PasswordConfirmation.vue'),
       meta: {
         access: 'public',
         name: 'passwordRecovery',

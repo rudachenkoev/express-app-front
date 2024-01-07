@@ -42,10 +42,10 @@ const isLoading = ref(false)
 const onSubmit = async () => {
   if (v$.value.$invalid) return v$.value.$touch()
 
+  const url = `v1/auth/${ route.name === 'registration-confirmation' ? 'registration' : 'password-recovery'}-requests/confirmation/`
   isLoading.value = true
   try {
-    const response = await axios.post('v1/auth/registration-requests/confirmation/',
-      { requestId: route.query.requestId, ...body })
+    const response = await axios.post(url, { requestId: route.query.requestId, ...body })
     setAuthToken({ jwt: response.data.bearer })
     location.href = '/'
   } catch (error) {
@@ -68,7 +68,7 @@ const generateUserPassword = () => {
 </script>
 
 <template>
-  <h1 class="text-3xl md:text-4xl leading-normal font-medium mb-11">{{ $t('finishRegistration') }}</h1>
+  <h1 class="text-3xl md:text-4xl leading-normal font-medium mb-11">{{ $t($route.meta.name) }}</h1>
 
   <AppInput
     v-model="body.password"
