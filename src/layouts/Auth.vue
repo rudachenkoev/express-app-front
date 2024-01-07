@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+//
+const contentBottomPosition = ref(0)
+const observeHeight = () => {
+  const resizeObserver = new ResizeObserver(function(resizeObserverEntry) {
+    contentBottomPosition.value = resizeObserverEntry[0].target.clientHeight / 2
+  })
+  const el = document.getElementById('contentForm')
+  if (el) resizeObserver.observe(el)
+}
+onMounted(() => observeHeight())
+</script>
+
 <template>
   <div class="w-screen h-screen">
     <div class="size-full md:h-1/2 bg-primary">
@@ -20,9 +34,14 @@
             height="385"
             class="sm:hidden xl:block"
             loading="lazy"
-            alt="rocket-man"/>
+            alt="rocket-man"
+          />
         </div>
-        <div class="md:absolute -bottom-[358px] md:right-[calc(50%-270px)] lg:right-0 max-w-[540px] w-full h-fit bg-white shadow-[0_4px_35px_0_rgba(0,0,0,0.08)] rounded-[40px] p-11">
+        <div
+          id="contentForm"
+          class="md:absolute md:right-[calc(50%-270px)] lg:right-0 max-w-[540px] w-full h-fit bg-white shadow-[0_4px_35px_0_rgba(0,0,0,0.08)] rounded-[40px] p-11"
+          :style="`bottom: -${contentBottomPosition}px`"
+        >
           <RouterView/>
         </div>
       </div>
