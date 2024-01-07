@@ -17,11 +17,11 @@ const colorVariants = {
   <div>
     <label class="flex items-center">
       <input
+        type="checkbox"
         :checked="modelValue"
         :disabled="disabled"
-        type="checkbox"
         :class="[colorVariants.default, errorMessages?.length && colorVariants.error]"
-        @input="(event) => $emit('update:modelValue', event.target.checked)"
+        @input="event => $emit('update:modelValue', event.target.checked)"
       />
       <span v-if="label" class="ml-2 text-sm font-light">{{ label }}</span>
     </label>
