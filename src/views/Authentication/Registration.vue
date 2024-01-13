@@ -6,18 +6,23 @@ import axios from 'axios'
 import AppCheckmark from '@components/app/AppCheckmark.vue'
 import { storeToRefs } from 'pinia'
 import { useUserStore } from '@stores/user'
+import { VueRecaptcha } from 'vue-recaptcha'
 // Use methods and configurations
 const userStore = storeToRefs(useUserStore())
+const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY
 //
-interface RegistrationForm {
-  email: string
+type RegistrationForm = {
+  email: string,
+  recaptcha: string
 }
 const body: RegistrationForm = reactive({
-  email: userStore.email
+  email: userStore.email,
+  recaptcha: ''
 })
 // Validation
 const rules = computed(() => ({
-  email: { required, email }
+  email: { required, email },
+  recaptcha: { required }
 }))
 const v$ = useVuelidate(rules, body)
 
@@ -41,7 +46,7 @@ const onSubmit = async () => {
 <template>
   <template v-if="isDoneRegistration">
     <AppCheckmark />
-    <div v-html="$t('signUpFlowDesc', { email: body.email })" class="mb-11 text-center"/>
+    <div v-html="$t('signUpFlowDesc', { email: body.email })" class="mb-11 text-center" />
     <AppButton :label="$t('backToLogin')" width="full" @click="$router.push({ name: 'login' })"/>
   </template>
   <template v-else>
@@ -54,9 +59,15 @@ const onSubmit = async () => {
       :error-messages="v$.email.$errors"
       type="email"
       width="full"
-      class="mb-11"
+      class="mb-9"
       @blur="v$.email.$touch()"
       @keyup.enter="onSubmit"
+    />
+    <VueRecaptcha
+      :sitekey="recaptchaSiteKey"
+      class="mb-11"
+      @verify="value => body.recaptcha = value"
+      @expired="() => body.recaptcha = ''"
     />
 
     <AppButton :label="$t('sendConfirmationEmail')" :loading="isLoading" width="full" @click="onSubmit"/>
