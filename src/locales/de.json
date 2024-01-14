@@ -1,0 +1,51 @@
+{
+  "notify": {
+    "validation": {
+      "required": "Dieses Feld ist erforderlich",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "maxLength": "Überschreitet die maximale Länge von {max} Zeichen",
+      "minLength": "Entspricht nicht der Mindestlängenanforderung von {min} Zeichen",
+      "maxValue": "Überschreitet den maximalen Wert",
+      "minValue": "Unterschreitet den minimalen Wert",
+      "sameAs": "Wert muss gleich einem anderen Wert sein",
+      "sameAsPassword": "Passwörter stimmen nicht überein",
+      "containsUppercase": "Muss mindestens einen Großbuchstaben enthalten",
+      "containsLowercase": "Muss mindestens einen Kleinbuchstaben enthalten",
+      "containsNumber": "Muss mindestens eine Ziffer enthalten"
+    },
+    "errors": {
+      "Server error": "Etwas ist schief gelaufen. Bitte informieren Sie die Administration über Ihren Fehler über den Feedback-Bereich.",
+      "Forbidden access": "Zugriff auf den Abschnitt ist nicht verfügbar oder vorübergehend geschlossen",
+      "No user information was found or the data is incorrect": "Es wurden keine Benutzerinformationen gefunden oder die Daten sind inkorrekt",
+      "Feedback was not found": "Feedback wurde nicht gefunden",
+      "Password recovery request has not been created before": "Das Passwort-Wiederherstellungsanforderung wurde zuvor nicht erstellt",
+      "A user with this mail already exists": "Ein Benutzer mit dieser E-Mail existiert bereits",
+      "Registration request has not been created before": "Die Registrierungsanforderung wurde zuvor nicht erstellt"
+    }
+  },
+  "btn": {
+    "continue": "Weiter"
+  },
+  "payAttention": "Achtung",
+  "errorOccurred": "Ein Fehler ist aufgetreten",
+  "signIn": "Anmelden",
+  "signInWithGoogle": "Mit Google anmelden",
+  "signInDesc": "Dienst erstellt, um Fähigkeiten in der Entwicklung von Frontend- und Backend-Teilen unter Verwendung von Vue.js, Express und MongoDB zu demonstrieren. Eine Plattform, die es Ihnen ermöglicht, Schulungsprogramme zu kaufen und zu erstellen, um sie weiter zu verkaufen.",
+  "noAccount": "Kein Konto?",
+  "signUp": "Registrieren",
+  "enterYourEmail": "Geben Sie Ihre E-Mail-Adresse ein",
+  "email": "E-Mail-Adresse",
+  "enterYourPassword": "Geben Sie Ihr Passwort ein",
+  "password": "Passwort",
+  "forgotPassword": "Passwort vergessen?",
+  "alreadyHaveAccount": "Haben Sie bereits ein Konto?",
+  "finishRegistration": "Registrierung abschließen",
+  "passwordConfirmation": "Passwortbestätigung",
+  "backToLogin": "Zurück zur Anmeldung",
+  "signUpFlowDesc": "Eine Bestätigungs-E-Mail wurde an <span class='text-primary'>{email}</span> gesendet. Überprüfen Sie Ihre E-Mail-Adresse, um die Registrierung fortzusetzen. Wenn Sie die E-Mail innerhalb von 5 Minuten nicht erhalten, senden Sie die Anfrage erneut.",
+  "generatePasswordAutomatically": "Generieren Sie Ihr Passwort automatisch",
+  "passwordRecoveryDesc": "Eine Bestätigungs-E-Mail wurde an <span class='text-primary'>{email}</span> gesendet. Überprüfen Sie Ihre E-Mail-Adresse, um die Passwortwiederherstellung fortzusetzen. Wenn Sie die E-Mail innerhalb von 5 Minuten nicht erhalten, senden Sie die Anfrage erneut.",
+  "passwordRecovery": "Passwortwiederherstellung",
+  "sendConfirmationEmail": "Bestätigungs-E-Mail senden",
+  "rememberPassword": "Erinnern Sie sich an Ihr Passwort?"
+}
