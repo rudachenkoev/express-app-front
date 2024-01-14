@@ -10,6 +10,7 @@ export const setAxiosConfigurations = () => {
   axios.defaults.baseURL = VITE_API_URL
   const token = localStorage.getItem('TOKEN')
   if (VITE_DEV_MODE === 'true' && token) axios.defaults.headers.common['Authorization'] = token
+  axios.defaults.headers.common['Accept-Language'] = i18n.global.locale.value
 
 
   axios.interceptors.response.use((response) => response, (error) => {
