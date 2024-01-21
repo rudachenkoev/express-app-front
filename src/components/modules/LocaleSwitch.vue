@@ -30,14 +30,14 @@ const changeLocale = (item: LocaleItem) => {
 
 <template>
   <div v-if="currentLocale" class="relative">
-    <img
-      :src="`/icons/flags/${currentLocale.id}.svg`"
-      class="cursor-pointer rounded-full"
-      width="24"
-      height="24"
-      :alt="`${currentLocale.id}-flag`"
-      @click="isExpandedList = !isExpandedList"
-    />
+    <div class="border border-white cursor-pointer rounded-full" @click="isExpandedList = !isExpandedList">
+      <img
+        :src="`/icons/flags/${currentLocale.id}.svg`"
+        width="24"
+        height="24"
+        :alt="`${currentLocale.id}-flag`"
+      />
+    </div>
     <ul
       v-show="isExpandedList"
       class="w-max absolute top-8 right-0 bg-white rounded shadow"

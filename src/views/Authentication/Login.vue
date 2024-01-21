@@ -10,7 +10,7 @@ import { storeToRefs } from 'pinia'
 // Use methods and configurations
 const route = useRoute()
 const userStore = storeToRefs(useUserStore())
-const LocaleSwitch = defineAsyncComponent(() => import('@/components/modules/LocaleSwitch.vue'))
+const LocaleSwitch = defineAsyncComponent(() => import('@components/modules/LocaleSwitch.vue'))
 //
 interface LoginForm {
   email: string,
@@ -50,7 +50,7 @@ const onSubmit = async () => {
     <LocaleSwitch/>
   </div>
   <div class="flex space-x-3 md:space-x-5 mb-12">
-    <AppButton icon="google" :label="$t('signInWithGoogle')" color="info" width="full"/>
+    <AppButton icon="google" :label="$t('signInWithGoogle')" color="info" class="w-full"/>
     <AppButton icon="facebook" color="surface"/>
     <AppButton icon="apple" color="surface"/>
   </div>
@@ -83,7 +83,7 @@ const onSubmit = async () => {
     </router-link>
   </div>
 
-  <AppButton :label="$t('signIn')" :loading="isLoading" width="full" @click="onSubmit"/>
+  <AppButton :label="$t('signIn')" :loading="isLoading" class="w-full" @click="onSubmit"/>
   <div class="text-xs md:text-sm text-secondary text-center mt-8">
     {{ $t('noAccount') }}
     <router-link :to="{ name: 'registration' }" class="text-primary">

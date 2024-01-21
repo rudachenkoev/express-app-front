@@ -8,17 +8,16 @@ const props = defineProps({
   color: {
     type: String,
     default: 'primary',
-    validator: (value:string) => ['primary', 'info', 'surface'].includes(value)
+    validator: (value:string) => ['white', 'primary', 'info', 'surface'].includes(value)
   },
-  width: { type: String, default: 'auto' },
-  height: { type: String, default: '14' },
   disabled: { type: Boolean, default: false },
   loading: { type: Boolean, default: false }
 })
 //
-const defaultClasses = `min-w-14 w-${props.width} h-14 disabled:opacity-50 flex items-center justify-center p-4 rounded-lg transition-colors ease-in-out duration-300`
+const defaultClasses = 'min-w-14 h-14 disabled:opacity-50 flex items-center justify-center p-4 rounded-lg transition-colors ease-in-out duration-300'
 const theme = computed<string>(() => {
   switch (props.color) {
+    case 'white': return 'bg-white hover:bg-white/90 text-black'
     case 'info': return 'bg-info hover:bg-info/75 text-accent'
     case 'surface': return 'bg-surface hover:bg-surface/75'
     default: return 'bg-primary hover:bg-primary/75 text-white shadow-[0_4px_19px_0_rgba(119,147,65,0.30)]'

@@ -22,7 +22,7 @@ onMounted(() => observeHeight())
               {{ $t($route.meta.title) }}
             </div>
             <div class="text-2xl text-white leading-relaxed">
-              Express Application Front
+              TrailHub
             </div>
             <div class="min-h-[115px] mt-5 text-sm text-white font-light">
               {{ $t('signInDesc') }}

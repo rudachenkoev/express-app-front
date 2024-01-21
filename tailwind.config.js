@@ -8,6 +8,7 @@ export default {
     extend: {},
     colors: {
       white: 'rgb(var(--color-white) / <alpha-value>)',
+      black: 'rgb(var(--color-black) / <alpha-value>)',
       primary: 'rgb(var(--color-primary) / <alpha-value>)',
       accent: 'rgb(var(--color-accent) / <alpha-value>)',
       secondary: 'rgb(var(--color-secondary) / <alpha-value>)',

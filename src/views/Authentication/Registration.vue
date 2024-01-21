@@ -47,7 +47,7 @@ const onSubmit = async () => {
   <template v-if="isDoneRegistration">
     <AppCheckmark />
     <div v-html="$t('signUpFlowDesc', { email: body.email })" class="mb-11 text-center" />
-    <AppButton :label="$t('backToLogin')" width="full" @click="$router.push({ name: 'login' })"/>
+    <AppButton :label="$t('backToLogin')" class="w-full" @click="$router.push({ name: 'login' })"/>
   </template>
   <template v-else>
     <h1 class="text-3xl md:text-4xl leading-normal font-medium mb-11">{{ $t('signUp') }}</h1>
@@ -70,7 +70,7 @@ const onSubmit = async () => {
       @expired="() => body.recaptcha = ''"
     />
 
-    <AppButton :label="$t('sendConfirmationEmail')" :loading="isLoading" width="full" @click="onSubmit"/>
+    <AppButton :label="$t('sendConfirmationEmail')" :loading="isLoading" class="w-full" @click="onSubmit"/>
 
     <div class="text-xs md:text-sm text-secondary text-center mt-8">
       {{ $t('alreadyHaveAccount') }}

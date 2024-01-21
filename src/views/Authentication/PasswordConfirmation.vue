@@ -97,5 +97,5 @@ const generateUserPassword = () => {
     class="mb-11"
   />
 
-  <AppButton :label="$t('btn.continue')" :loading="isLoading" width="full" @click="onSubmit"/>
+  <AppButton :label="$t('btn.continue')" :loading="isLoading" class="w-full" @click="onSubmit"/>
 </template>
