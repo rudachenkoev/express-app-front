@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, computed, ref } from 'vue'
+import { reactive, computed, ref, defineAsyncComponent } from 'vue'
 import { required, email } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
 import axios from 'axios'
@@ -7,6 +7,7 @@ import AppCheckmark from '@components/app/AppCheckmark.vue'
 import { storeToRefs } from 'pinia'
 import { useUserStore } from '@stores/user'
 import { VueRecaptcha } from 'vue-recaptcha'
+const LocaleSwitch = defineAsyncComponent(() => import('@components/modules/LocaleSwitch.vue'))
 // Use methods and configurations
 const userStore = storeToRefs(useUserStore())
 const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY
@@ -49,8 +50,12 @@ const onSubmit = async () => {
     <div v-html="$t('signUpFlowDesc', { email: body.email })" class="mb-11 text-center" />
     <AppButton :label="$t('backToLogin')" class="w-full" @click="$router.push({ name: 'login' })"/>
   </template>
+
   <template v-else>
-    <h1 class="text-3xl md:text-4xl leading-normal font-medium mb-11">{{ $t('signUp') }}</h1>
+    <div class="flex items-center justify-between mb-11">
+      <h1 class="text-2xl md:text-4xl leading-normal font-medium break-words">{{ $t('signUp') }}</h1>
+      <LocaleSwitch/>
+    </div>
 
     <AppInput
       v-model="body.email"

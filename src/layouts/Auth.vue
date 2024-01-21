@@ -18,12 +18,10 @@ onMounted(() => observeHeight())
       <div class="container h-full mx-auto relative flex justify-center md:justify-start md:items-end p-6 md:p-0">
         <div class="hidden lg:flex justify-between items-center w-full max-w-[485px] xl:max-w-[741px] 2xl:max-w-[998px] lg:pr-12 lg:pb-12">
           <div class="pr-12">
-            <div class="text-4xl text-white font-semibold leading-relaxed">
-              {{ $t($route.meta.title) }}
-            </div>
-            <div class="text-2xl text-white leading-relaxed">
-              TrailHub
-            </div>
+            <router-link :to="{ name: 'home' }" class="flex items-center space-x-3">
+              <img src="/images/logo.svg" width="36" height="36" class="filter-white" alt="TrailHub Logo" />
+              <span class="self-center text-white text-2xl font-medium whitespace-nowrap">TrailHub</span>
+            </router-link>
             <div class="min-h-[115px] mt-5 text-sm text-white font-light">
               {{ $t('signInDesc') }}
             </div>

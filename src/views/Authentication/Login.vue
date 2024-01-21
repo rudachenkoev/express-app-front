@@ -46,7 +46,7 @@ const onSubmit = async () => {
 
 <template>
   <div class="flex items-center justify-between mb-11">
-    <h1 class="text-3xl md:text-4xl leading-normal font-medium">{{ $t('signIn') }}</h1>
+    <h1 class="text-2xl md:text-4xl leading-normal font-medium break-words">{{ $t('signIn') }}</h1>
     <LocaleSwitch/>
   </div>
   <div class="flex space-x-3 md:space-x-5 mb-12">

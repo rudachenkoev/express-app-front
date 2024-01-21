@@ -32,7 +32,10 @@ const isExpandedList = ref(false)
           <li :key="item.routeName" v-for="item in menuItems">
             <router-link
               :to="{ name: item.routeName }"
-              class="text-white hover:text-white/75 transition-colors ease-in-out duration-300"
+              :class="[
+                'text-white hover:text-white/75 transition-colors ease-in-out duration-300 relative',
+                 $route.name === item.routeName && 'font-medium after:content-[\'\'] after:block after:absolute after:w-full after:bg-white after:h-[2px]'
+              ]"
             >
               {{ item.name }}
             </router-link>
@@ -47,7 +50,10 @@ const isExpandedList = ref(false)
       <div v-if="isExpandedList" class="max-w-screen-2xl mx-auto px-6 py-4 space-y-8">
         <ul class="space-y-8 text-center">
           <li :key="item.routeName" v-for="item in menuItems">
-            <router-link :to="{ name: item.routeName }" class="text-white">
+            <router-link
+              :to="{ name: item.routeName }"
+              :class="['text-white relative', $route.name === item.routeName && 'font-semibold']"
+            >
               {{ item.name }}
             </router-link>
           </li>

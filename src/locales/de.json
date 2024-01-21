@@ -47,5 +47,8 @@
   "passwordRecoveryDesc": "Eine Bestätigungs-E-Mail wurde an <span class='text-primary'>{email}</span> gesendet. Überprüfen Sie Ihre E-Mail-Adresse, um die Passwortwiederherstellung fortzusetzen. Wenn Sie die E-Mail innerhalb von 5 Minuten nicht erhalten, senden Sie die Anfrage erneut.",
   "passwordRecovery": "Passwortwiederherstellung",
   "sendConfirmationEmail": "Bestätigungs-E-Mail senden",
-  "rememberPassword": "Erinnern Sie sich an Ihr Passwort?"
+  "rememberPassword": "Erinnern Sie sich an Ihr Passwort?",
+  "home": "Startseite",
+  "library": "Bibliothek",
+  "feedback": "Rückmeldung"
 }

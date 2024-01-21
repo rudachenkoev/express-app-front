@@ -45,7 +45,7 @@ const onSubmit = async () => {
     <AppButton :label="$t('backToLogin')" class="w-full" @click="$router.push({ name: 'login' })"/>
   </template>
   <template v-else>
-    <h1 class="text-3xl md:text-4xl leading-normal font-medium mb-11">{{ $t('passwordRecovery') }}</h1>
+    <h1 class="text-2xl md:text-4xl leading-normal font-medium break-words mb-11">{{ $t('passwordRecovery') }}</h1>
 
     <AppInput
       v-model="body.email"
