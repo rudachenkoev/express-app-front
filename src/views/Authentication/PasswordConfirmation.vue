@@ -4,7 +4,7 @@ import { required, minLength, maxLength, sameAs } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
 import axios from 'axios'
 import { useRoute, useRouter } from 'vue-router'
-import { generatePassword, setAuthToken } from '@helpers/auth'
+import { generatePassword, setAuthToken } from '@composables/auth'
 // Use methods and configurations
 const route = useRoute()
 const router = useRouter()
@@ -68,8 +68,6 @@ const generateUserPassword = () => {
 </script>
 
 <template>
-  <h1 class="text-2xl md:text-4xl leading-normal font-medium break-words mb-11">{{ $t($route.meta.title) }}</h1>
-
   <AppInput
     v-model="body.password"
     :label="$t('enterYourPassword')"

@@ -17,7 +17,7 @@ const props = defineProps({
 defineEmits(['update:modelValue', 'blur', 'keyup.enter'])
 //
 const colorVariants = {
-  default: `formField w-${props.width} h-14 flex items-center px-6 py-5`,
+  default: `formField w-${props.width} h-12 md:h-14 flex items-center px-6 py-5`,
   error: 'formField-error'
 }
 

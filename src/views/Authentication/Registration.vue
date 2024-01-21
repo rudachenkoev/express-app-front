@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, computed, ref, defineAsyncComponent } from 'vue'
+import { reactive, computed, ref } from 'vue'
 import { required, email } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
 import axios from 'axios'
@@ -7,8 +7,9 @@ import AppCheckmark from '@components/app/AppCheckmark.vue'
 import { storeToRefs } from 'pinia'
 import { useUserStore } from '@stores/user'
 import { VueRecaptcha } from 'vue-recaptcha'
-const LocaleSwitch = defineAsyncComponent(() => import('@components/modules/LocaleSwitch.vue'))
+import { useScreenSize } from '@composables/media'
 // Use methods and configurations
+const breakpoint = computed(() => useScreenSize())
 const userStore = storeToRefs(useUserStore())
 const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY
 //
@@ -47,16 +48,11 @@ const onSubmit = async () => {
 <template>
   <template v-if="isDoneRegistration">
     <AppCheckmark />
-    <div v-html="$t('signUpFlowDesc', { email: body.email })" class="mb-11 text-center" />
+    <div v-html="$t('signUpFlowDesc', { email: body.email })" class="text-sm md:text-base text-center mb-11" />
     <AppButton :label="$t('backToLogin')" class="w-full" @click="$router.push({ name: 'login' })"/>
   </template>
 
   <template v-else>
-    <div class="flex items-center justify-between mb-11">
-      <h1 class="text-2xl md:text-4xl leading-normal font-medium break-words">{{ $t('signUp') }}</h1>
-      <LocaleSwitch/>
-    </div>
-
     <AppInput
       v-model="body.email"
       :label="$t('enterYourEmail')"
@@ -70,6 +66,7 @@ const onSubmit = async () => {
     />
     <VueRecaptcha
       :sitekey="recaptchaSiteKey"
+      :size="['xs', 'sm'].includes(breakpoint) ? 'compact' : 'normal'"
       class="mb-11"
       @verify="value => body.recaptcha = value"
       @expired="() => body.recaptcha = ''"

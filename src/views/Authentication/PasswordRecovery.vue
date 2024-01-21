@@ -41,12 +41,10 @@ const onSubmit = async () => {
 <template>
   <template v-if="isDoneRecovery">
     <AppCheckmark />
-    <div v-html="$t('passwordRecoveryDesc', { email: body.email })" class="mb-11 text-center"/>
+    <div v-html="$t('passwordRecoveryDesc', { email: body.email })" class="text-sm md:text-base text-center mb-11"/>
     <AppButton :label="$t('backToLogin')" class="w-full" @click="$router.push({ name: 'login' })"/>
   </template>
   <template v-else>
-    <h1 class="text-2xl md:text-4xl leading-normal font-medium break-words mb-11">{{ $t('passwordRecovery') }}</h1>
-
     <AppInput
       v-model="body.email"
       :label="$t('enterYourEmail')"

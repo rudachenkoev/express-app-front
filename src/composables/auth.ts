@@ -1,6 +1,6 @@
 const DEV_MODE = import.meta.env.VITE_DEV_MODE
 
-function deleteAllCookies(cookieName: string) {
+const deleteAllCookies = (cookieName: string) => {
   let cookies = document.cookie.split(';')
   for (let i = 0; i < cookies.length; i++) {
     let cookie = cookies[i]
@@ -15,7 +15,8 @@ function deleteAllCookies(cookieName: string) {
   }
 }
 
-function setCookie({ cookieName, cookieValue, expirationMinutes = 720 }: { cookieName: string, cookieValue: string, expirationMinutes?: number }) {
+type SetCookies = { cookieName: string, cookieValue: string, expirationMinutes?: number }
+const setCookie = ({ cookieName, cookieValue, expirationMinutes = 720 }: SetCookies) => {
   let expires = new Date()
   expires.setTime(expires.getTime() + (expirationMinutes * 60 * 1000))
   document.cookie = `${cookieName}=${cookieValue};expires=${expires.toUTCString()};path=/`

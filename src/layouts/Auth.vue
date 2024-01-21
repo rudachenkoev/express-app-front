@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
+import { useScreenSize } from '@composables/media'
 //
+const breakpoint = computed(() => useScreenSize())
+const LocaleSwitch = defineAsyncComponent(() => import('@components/modules/LocaleSwitch.vue'))
 const contentBottomPosition = ref(0)
 const observeHeight = () => {
   const resizeObserver = new ResizeObserver(function(resizeObserverEntry) {
@@ -37,9 +40,21 @@ onMounted(() => observeHeight())
         </div>
         <div
           id="contentForm"
-          class="md:absolute md:right-[calc(50%-270px)] lg:right-0 max-w-[540px] w-full h-fit bg-white shadow-[0_4px_35px_0_rgba(0,0,0,0.08)] rounded-[40px] p-11"
+          class="md:absolute md:right-[calc(50%-270px)] lg:right-0 max-w-[540px] w-full h-fit bg-white shadow-[0_4px_35px_0_rgba(0,0,0,0.08)] rounded-3xl md:rounded-[40px] p-7 md:p-11"
           :style="`bottom: -${contentBottomPosition}px`"
         >
+          <div v-if="['xs', 'sm', 'md'].includes(breakpoint)" class="flex items-center justify-between mb-12">
+            <router-link :to="{ name: 'home' }" class="flex items-center space-x-3">
+              <img src="/images/logo.svg" width="24" height="24" alt="TrailHub Logo" />
+              <span class="self-center text-2xl md:text-4xl font-medium whitespace-nowrap">TrailHub</span>
+            </router-link>
+            <LocaleSwitch/>
+          </div>
+          <div class="flex items-center justify-between mb-10">
+            <h1 class="text-xl md:text-3xl leading-normal font-medium break-words">{{ $t($route.meta.title) }}</h1>
+            <LocaleSwitch v-if="['lg', 'xl', '2xl'].includes(breakpoint)"/>
+          </div>
+
           <RouterView/>
         </div>
       </div>

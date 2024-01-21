@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { reactive, computed, ref, defineAsyncComponent } from 'vue'
+import { reactive, computed, ref } from 'vue'
 import { required, email } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
 import axios from 'axios'
-import { setAuthToken } from '@helpers/auth'
+import { setAuthToken } from '@composables/auth'
 import { useRoute } from 'vue-router'
 import { useUserStore } from '@stores/user'
 import { storeToRefs } from 'pinia'
 // Use methods and configurations
 const route = useRoute()
 const userStore = storeToRefs(useUserStore())
-const LocaleSwitch = defineAsyncComponent(() => import('@components/modules/LocaleSwitch.vue'))
 //
 interface LoginForm {
   email: string,
@@ -45,11 +44,7 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <div class="flex items-center justify-between mb-11">
-    <h1 class="text-2xl md:text-4xl leading-normal font-medium break-words">{{ $t('signIn') }}</h1>
-    <LocaleSwitch/>
-  </div>
-  <div class="flex space-x-3 md:space-x-5 mb-12">
+  <div class="flex space-x-3 md:space-x-5 mb-8">
     <AppButton icon="google" :label="$t('signInWithGoogle')" color="info" class="w-full"/>
     <AppButton icon="facebook" color="surface"/>
     <AppButton icon="apple" color="surface"/>

@@ -14,7 +14,7 @@ const props = defineProps({
   loading: { type: Boolean, default: false }
 })
 //
-const defaultClasses = 'min-w-14 h-14 disabled:opacity-50 flex items-center justify-center p-4 rounded-lg transition-colors ease-in-out duration-300'
+const defaultClasses = 'min-w-14 h-12 md:h-14 text-sm md:text-base disabled:opacity-50 flex items-center justify-center p-4 rounded-lg transition-colors ease-in-out duration-300'
 const theme = computed<string>(() => {
   switch (props.color) {
     case 'white': return 'bg-white hover:bg-white/90 text-black'

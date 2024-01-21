@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { checkAuthentication } from '@helpers/auth'
+import { checkAuthentication } from '@composables/auth'
 import authRoutes from '@/router/auth.routes'
 
 const router = createRouter({

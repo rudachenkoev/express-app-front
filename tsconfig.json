@@ -10,7 +10,7 @@
       "@/*": ["src/*"],
       "@layouts/*": ["src/layouts/*"],
       "@components/*": ["src/components/*"],
-      "@helpers/*": ["src/helpers/*"],
+      "@composables/*": ["src/composables/*"],
       "@stores/*": ["src/stores/*"]
     },
 

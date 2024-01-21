@@ -1,7 +1,7 @@
 import axios from 'axios'
 import iziToast from 'izitoast'
 import i18n from '@/plugins/vue-i18n'
-import { logout } from '@helpers/auth'
+import { logout } from '@composables/auth'
 import router from '@/router'
 
 const { VITE_API_URL, VITE_DEV_MODE } = import.meta.env
