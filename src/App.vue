@@ -16,7 +16,7 @@ const layout = computed<Component | boolean>(() => {
     default: return false
   }
 })
-watch(route, (to) => document.title = to.meta.title ? `${t(to.meta.title)} | TrailHub` : 'TrailHub')
+watch(route, (to) => document.title = to.meta.title ? `${t(String(to.meta.title))} | TrailHub` : 'TrailHub')
 </script>
 
 <template>

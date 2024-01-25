@@ -1,16 +1,21 @@
 <script setup lang="ts">
+import type { PropType } from 'vue'
+import { ErrorMessage } from '@/types'
+// Use methods and configurations
 defineProps({
   modelValue: { type: Boolean },
   label: { type: String, default: '' },
-  errorMessages: { type: Array, default: [] },
+  errorMessages: { type: Array as PropType<ErrorMessage[]>, default: [] },
   disabled: { type: Boolean, default: false }
 })
-defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue'])
 //
 const colorVariants = {
   default: 'formField w-4 h-4',
   error: 'formField-error'
 }
+
+const handleInput = (e: Event) => emit('update:modelValue', (e.target as HTMLInputElement).checked)
 </script>
 
 <template>
@@ -21,7 +26,7 @@ const colorVariants = {
         :checked="modelValue"
         :disabled="disabled"
         :class="[colorVariants.default, errorMessages?.length && colorVariants.error]"
-        @input="event => $emit('update:modelValue', event.target.checked)"
+        @input="handleInput"
       />
       <span v-if="label" class="ml-2 text-sm font-light">{{ label }}</span>
     </label>

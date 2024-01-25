@@ -68,7 +68,7 @@ const onSubmit = async () => {
       :sitekey="recaptchaSiteKey"
       :size="['xs', 'sm'].includes(breakpoint) ? 'compact' : 'normal'"
       class="mb-11"
-      @verify="value => body.recaptcha = value"
+      @verify="(value: string) => body.recaptcha = value"
       @expired="() => body.recaptcha = ''"
     />
 

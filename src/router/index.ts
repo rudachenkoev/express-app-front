@@ -19,7 +19,7 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, _, next) => {
   if (checkAuthentication()) {
     if (to.meta.access === 'public') next('/')
     else next()

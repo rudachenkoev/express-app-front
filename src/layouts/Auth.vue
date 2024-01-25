@@ -51,7 +51,7 @@ onMounted(() => observeHeight())
             <LocaleSwitch/>
           </div>
           <div class="flex items-center justify-between mb-10">
-            <h1 class="text-xl md:text-3xl leading-normal font-medium break-words">{{ $t($route.meta.title) }}</h1>
+            <h1 class="text-xl md:text-3xl leading-normal font-medium break-words">{{ $t($route.meta.title as string) }}</h1>
             <LocaleSwitch v-if="['lg', 'xl', '2xl'].includes(breakpoint)"/>
           </div>
 

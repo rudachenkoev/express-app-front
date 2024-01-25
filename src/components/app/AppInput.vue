@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, type PropType } from 'vue'
+import { ErrorMessage } from '@/types'
 // Use methods and configurations
 const props = defineProps({
   modelValue: { type: [String, Number] },
@@ -11,10 +12,10 @@ const props = defineProps({
     validator: (value: string) => ['text', 'number', 'date', 'email', 'password', 'search', 'tel'].includes(value)
   },
   width: { type: String, default: 'auto' },
-  errorMessages: { type: Array, default: [] },
+  errorMessages: { type: Array as PropType<ErrorMessage[]>, default: [] },
   disabled: { type: Boolean, default: false }
 })
-defineEmits(['update:modelValue', 'blur', 'keyup.enter'])
+const emit = defineEmits(['update:modelValue', 'blur', 'keyup.enter'])
 //
 const colorVariants = {
   default: `formField w-${props.width} h-12 md:h-14 flex items-center px-6 py-5`,
@@ -23,6 +24,8 @@ const colorVariants = {
 
 const fieldType = ref(props.type)
 const passwordAppendInnerIcon = computed<string>(() => fieldType.value === 'password' ? 'eye' : 'eye-slash')
+
+const handleInput = (e: Event) => emit('update:modelValue', (e.target as HTMLInputElement).value)
 </script>
 
 <template>
@@ -37,7 +40,7 @@ const passwordAppendInnerIcon = computed<string>(() => fieldType.value === 'pass
         :placeholder="placeholder || label"
         :disabled="disabled"
         class="w-full focus-visible:outline-0 text-sm font-light"
-        @input="event => $emit('update:modelValue', event.target.value)"
+        @input="handleInput"
         @blur="$emit('blur')"
         @keyup.enter="$emit('keyup.enter')"
       />
