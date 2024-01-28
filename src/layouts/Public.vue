@@ -7,8 +7,10 @@ const PublicNavbar = defineAsyncComponent(() => import('@components/PublicNavbar
 <template>
   <div class="h-screen flex flex-col">
     <PublicNavbar/>
-    <div class="flex-1 overflow-auto">
-      <RouterView/>
-    </div>
+    <main class="flex-1 overflow-auto">
+      <div class="container mx-auto px-6 py-4">
+        <RouterView/>
+      </div>
+    </main>
   </div>
 </template>

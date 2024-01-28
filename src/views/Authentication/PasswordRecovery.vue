@@ -61,7 +61,7 @@ const onSubmit = async () => {
 
     <div class="text-xs md:text-sm text-secondary text-center mt-8">
       {{ $t('rememberPassword') }}
-      <router-link :to="{ name: 'login' }" class="text-primary">{{ $t('signIn') }}</router-link>
+      <RouterLink :to="{ name: 'login' }" class="text-primary">{{ $t('signIn') }}</RouterLink>
     </div>
   </template>
 </template>

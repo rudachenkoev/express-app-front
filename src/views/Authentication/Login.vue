@@ -73,16 +73,16 @@ const onSubmit = async () => {
     @keyup.enter="onSubmit"
   />
   <div class="text-right mb-11">
-    <router-link :to="{ name: 'password-recovery' }" class="text-xs md:text-sm text-primary">
+    <RouterLink :to="{ name: 'password-recovery' }" class="text-xs md:text-sm text-primary">
       {{ $t('forgotPassword') }}
-    </router-link>
+    </RouterLink>
   </div>
 
   <AppButton :label="$t('signIn')" :loading="isLoading" class="w-full" @click="onSubmit"/>
   <div class="text-xs md:text-sm text-secondary text-center mt-8">
     {{ $t('noAccount') }}
-    <router-link :to="{ name: 'registration' }" class="text-primary">
+    <RouterLink :to="{ name: 'registration' }" class="text-primary">
       {{ $t('signUp') }}
-    </router-link>
+    </RouterLink>
   </div>
 </template>
